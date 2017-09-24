@@ -1,4 +1,4 @@
-grid_instrument (aka Launchpad Scale-mode)
+GridInstrument (aka Launchpad Scale-mode)
 ============
 
 Did you ever wish you could use your Launchpad as a MIDI controller? Do you covet the **scale mode** on the Launchpad Pro or Ableton Push, but not have the cash to buy them? Now you can play scales on any Novation Launchpad. 
@@ -17,7 +17,7 @@ Features:
 
 ## Requirements
 
-Before you try to do anything, make sure you have **Python 2** and **pip** install.
+Before you try to do anything, make sure you have **Python 2** and **pip** installed.
 
 ## How to use it as a standalone app
 
@@ -29,6 +29,8 @@ Download the source code from github and install prerequisites:
 Run the app:
 
     python play.py
+
+If all goes well, you should see your grid light up. Next, go into another piece of software that can receive MIDI signals (sforzando is a good, free choice), and you should see a new MIDI device called "Grid Instrument (Virtual Port)"
 
 ### How to use it as a Python library
 
