@@ -9,14 +9,14 @@ if not sys.version_info[0] == 2:
 
 setup(
 	name = "grid_instrument",
-	version = "0.5.0",
+	version = "0.5.1",
 	description = "Turn your Novation Launchpad into a MIDI instrument.",
-	long_description = open('README.md').read(),
+	long_description = open('README.rst').read(),
 	author = "Dave Hilowitz",
 	author_email = "dhilowitz@users.noreply.github.com",
-	license = "CC BY 4.0",
+	license = "MIT License",
 	keywords = "novation launchpad scales midi",
 	url = "https://github.com/dhilowitz/GridInstrument",
 	packages = ["grid_instrument"],
-	install_requires = ["launchpad_rtmidi_py"]
+	install_requires = ["launchpad_rtmidi_py", "python-rtmidi"]
 )
