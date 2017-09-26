@@ -5,7 +5,7 @@ Did you ever wish you could use your Launchpad as a MIDI instrument? Do you cove
 
 Here's a quick [video demo](https://youtu.be/JJA2fm-2NVg).
 
-At it's core, grid_instrument is a library that allows you to display a scale grid on your Novation Launchpad. It functions very similarly to the scale mode on Henri David's _fantastic_  [Launchpad95](http://motscousus.com/stuff/2011-07_Novation_Launchpad_Ableton_Live_Scripts/) scripts for Ableton Live, and also similarly to the [scale mode](https://global.novationmusic.com/launchpad-pro-scale-mode) on a Launchpad Pro.
+At it's core, **GridInstrument** is a library that allows you to display a scale grid on your Novation Launchpad. It functions very similarly to the scale mode on Henri David's _fantastic_  [Launchpad95](http://motscousus.com/stuff/2011-07_Novation_Launchpad_Ableton_Live_Scripts/) scripts for Ableton Live, and also similarly to the [scale mode](https://global.novationmusic.com/launchpad-pro-scale-mode) on a Launchpad Pro.
 
 Features:
 
