@@ -6,7 +6,7 @@ if not sys.version_info[0] == 2:
 
 setup(
 	name = "grid_instrument",
-	version = "0.6.1",
+	version = "0.6.2",
 	description = "Turn your Novation Launchpad into a MIDI instrument.",
 	long_description = open('README.rst').read(),
 	author = "Dave Hilowitz",
