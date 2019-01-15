@@ -7,7 +7,7 @@
 !/examples/*
 !/grid_instrument
 !/grid_instrument/*
-
+!play.py
 !README.md
 !MANIFEST.in
 !LICENSE.txt

@@ -1,5 +1,6 @@
 include examples/simple.py
 include examples/threading.py
 include examples/midi_output.py
+include play.py
 include README.rst
 include LICENSE
