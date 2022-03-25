@@ -50,10 +50,10 @@ class GridInstrument:
 
 	NOTE_NAMES = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 
-	NOTE_COLORS = { 
-		"Mk1": { 
-			"pressed": [0, 63],    
-			"root": [3, 0],      
+	NOTE_COLORS = {
+		"Mk1": {
+			"pressed": [0, 63],
+			"root": [3, 0],
 			"noteInScale": [1, 1],
 			"noteOutOfScale": [0, 0],
 			"settingsKeyOff": [0, 4],
@@ -65,10 +65,10 @@ class GridInstrument:
 			"settingsGridLayoutOff": [1, 0],
 			"settingsGridLayoutOn":  [3, 0],
 
-		}, 
-		"Mk2": { 
-			"pressed": [0, 50, 0], 
-			"root": [0, 10, 30], 
+		},
+		"Mk2": {
+			"pressed": [0, 50, 0],
+			"root": [0, 10, 30],
 			"noteInScale": [10, 10, 15],
 			"noteOutOfScale": [0, 0, 0],
 			"settingsKeyOff": [0, 4, 0],
@@ -160,7 +160,7 @@ class GridInstrument:
 			if randomButtonModeEnabled:
 				if randomButtonCounter > 30:
 					if randomButton:
-						self._button_released(randomButton[0], randomButton[1])  
+						self._button_released(randomButton[0], randomButton[1])
 						randomButton = None
 					# Make a new randomButton
 					randomButton = [random.randint(1,8), random.randint(1,8)]
@@ -403,7 +403,7 @@ class GridInstrument:
 		# print "Pressed Notes", _pressed_notes
 		return
 
-	# Todo, we should actually 
+	# Todo, we should actually
 	def _all_buttons_released(self):
 		for midiNote in self._pressed_notes:
 			self.note_callback('note_off', midiNote, 0)
