@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # Quick usage example of "grid_instrument" with MIDI output port.
 # Works with all Launchpads: Mk1, Mk2, S/Mini, Pro, XL and LaunchKey
