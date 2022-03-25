@@ -4,12 +4,12 @@ import math
 import collections
 
 try:
-	import launchpad_rtmidi_py as launchpad
+	import launchpad_py as launchpad
 except ImportError:
 	try:
-		import launchpad_rtmidi_py
+		import launchpad_py
 	except ImportError:
-		sys.exit("error loading launchpad_rtmidi.py")
+		sys.exit("error loading launchpad_py")
 
 class GridInstrument:
 
