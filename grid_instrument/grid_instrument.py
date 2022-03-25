@@ -207,7 +207,7 @@ class GridInstrument:
 						# Grid Key
 						self._grid_key = self.WHITE_KEYS[x - 1] + (y == 7)
 						self._color_buttons()
-						print "Key is ", self.NOTE_NAMES[self._grid_key]
+						print("Key is ", self.NOTE_NAMES[self._grid_key])
 					elif (1 <= x <= 8) and (1 <= y <= 4):
 						self._grid_musical_mode_button_pressed(x, y)
 				if x in [1, 2] and y == 9 and pressed and (self.kid_mode is not True):
@@ -398,7 +398,7 @@ class GridInstrument:
 				self._color_note_button(newButton[0], newButton[1], scaleNoteNumber, True)
 			self._pressed_notes.append(midiNote)
 		if self.debugging:
-			print "Button", buttonNumber, "pressed with MIDI note number", midiNote, "and velocity", velocity
+			print ("Button", buttonNumber, "pressed with MIDI note number", midiNote, "and velocity", velocity)
 			pass
 		# print "Pressed Notes", _pressed_notes
 		return
@@ -450,7 +450,7 @@ class GridInstrument:
 		index = (x - 1) + ((4 - y) * 8)
 		self._grid_musical_mode = self.MUSICAL_MODES.keys()[index]
 		if self.debugging:
-			print "Musical mode is", self._grid_musical_mode
+			print("Musical mode is", self._grid_musical_mode)
 			pass
 
 		self._all_buttons_released()
