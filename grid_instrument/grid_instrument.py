@@ -375,8 +375,8 @@ class GridInstrument:
 	def get_currently_playing_midi_notes(self):
 		midiNotes = []
 		for buttonNumber in self._pressed_buttons:
-			x = int(math.floor(buttonNumber % 8)) + 1
-			y = (buttonNumber / 8) + 1
+			x = int(buttonNumber % 8) + 1
+			y = math.floor(buttonNumber / 8) + 1
 			noteInfo = self._get_note_info(x, y)
 			if noteInfo[0] not in midiNotes:
 				midiNotes.append(noteInfo[0])
