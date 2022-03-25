@@ -210,7 +210,7 @@ class GridInstrument:
 						print("Key is ", self.NOTE_NAMES[self._grid_key])
 					elif (1 <= x <= 8) and (1 <= y <= 4):
 						self._grid_musical_mode_button_pressed(x, y)
-				if x in [1, 2] and y == 9 and pressed and (self.kid_mode is not True):
+				if x in [1, 2] and y == 9 and pressed and (self.kid_mode is not True) and self.func_button_callback:
 					self.func_button_callback(x, y, pressed)
 				elif x is 9 and y == 8:
 					if pressed:
