@@ -9,6 +9,7 @@
 #
 
 import grid_instrument
+from grid_instrument import grid_instrument
 import rtmidi
 import time
 
