@@ -115,7 +115,7 @@ class GridInstrument:
 		# create an instance
 		self.lp = launchpad.Launchpad()
 		while self._launchpad_model is None:
-			# lp.ListAll()
+			self.lp.ListAll()
 			# check what we have here and override lp if necessary
 			if self.lp.Check( 0, "pro" ):
 				self.lp = launchpad.LaunchpadPro()
