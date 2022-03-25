@@ -448,10 +448,11 @@ class GridInstrument:
 
 	def _grid_musical_mode_button_pressed(self, x, y):
 		index = (x - 1) + ((4 - y) * 8)
-		self._grid_musical_mode = self.MUSICAL_MODES.keys()[index]
-		if self.debugging:
-			print("Musical mode is", self._grid_musical_mode)
-			pass
+		modes = list(self.MUSICAL_MODES.keys())
+		if index < len(modes):
+			self._grid_musical_mode = modes[index]
+			if self.debugging:
+				print("Musical mode is", self._grid_musical_mode)
 
 		self._all_buttons_released()
 		self._color_buttons()
