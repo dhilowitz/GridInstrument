@@ -4,12 +4,12 @@ import math
 import collections
 
 try:
-	import launchpad_rtmidi_py as launchpad
+	import launchpad_py as launchpad
 except ImportError:
 	try:
-		import launchpad_rtmidi_py
+		import launchpad_py
 	except ImportError:
-		sys.exit("error loading launchpad_rtmidi.py")
+		sys.exit("error loading launchpad_py")
 
 class GridInstrument:
 
@@ -50,10 +50,10 @@ class GridInstrument:
 
 	NOTE_NAMES = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 
-	NOTE_COLORS = { 
-		"Mk1": { 
-			"pressed": [0, 63],    
-			"root": [3, 0],      
+	NOTE_COLORS = {
+		"Mk1": {
+			"pressed": [0, 63],
+			"root": [3, 0],
 			"noteInScale": [1, 1],
 			"noteOutOfScale": [0, 0],
 			"settingsKeyOff": [0, 4],
@@ -65,10 +65,10 @@ class GridInstrument:
 			"settingsGridLayoutOff": [1, 0],
 			"settingsGridLayoutOn":  [3, 0],
 
-		}, 
-		"Mk2": { 
-			"pressed": [0, 50, 0], 
-			"root": [0, 10, 30], 
+		},
+		"Mk2": {
+			"pressed": [0, 50, 0],
+			"root": [0, 10, 30],
 			"noteInScale": [10, 10, 15],
 			"noteOutOfScale": [0, 0, 0],
 			"settingsKeyOff": [0, 4, 0],
@@ -115,7 +115,7 @@ class GridInstrument:
 		# create an instance
 		self.lp = launchpad.Launchpad()
 		while self._launchpad_model is None:
-			# lp.ListAll()
+			self.lp.ListAll()
 			# check what we have here and override lp if necessary
 			if self.lp.Check( 0, "pro" ):
 				self.lp = launchpad.LaunchpadPro()
@@ -160,7 +160,7 @@ class GridInstrument:
 			if randomButtonModeEnabled:
 				if randomButtonCounter > 30:
 					if randomButton:
-						self._button_released(randomButton[0], randomButton[1])  
+						self._button_released(randomButton[0], randomButton[1])
 						randomButton = None
 					# Make a new randomButton
 					randomButton = [random.randint(1,8), random.randint(1,8)]
@@ -207,10 +207,10 @@ class GridInstrument:
 						# Grid Key
 						self._grid_key = self.WHITE_KEYS[x - 1] + (y == 7)
 						self._color_buttons()
-						print "Key is ", self.NOTE_NAMES[self._grid_key]
+						print("Key is ", self.NOTE_NAMES[self._grid_key])
 					elif (1 <= x <= 8) and (1 <= y <= 4):
 						self._grid_musical_mode_button_pressed(x, y)
-				if x in [1, 2] and y == 9 and pressed and (self.kid_mode is not True):
+				if x in [1, 2] and y == 9 and pressed and (self.kid_mode is not True) and self.func_button_callback:
 					self.func_button_callback(x, y, pressed)
 				elif x is 9 and y == 8:
 					if pressed:
@@ -375,8 +375,8 @@ class GridInstrument:
 	def get_currently_playing_midi_notes(self):
 		midiNotes = []
 		for buttonNumber in self._pressed_buttons:
-			x = int(math.floor(buttonNumber % 8)) + 1
-			y = (buttonNumber / 8) + 1
+			x = int(buttonNumber % 8) + 1
+			y = math.floor(buttonNumber / 8) + 1
 			noteInfo = self._get_note_info(x, y)
 			if noteInfo[0] not in midiNotes:
 				midiNotes.append(noteInfo[0])
@@ -398,12 +398,12 @@ class GridInstrument:
 				self._color_note_button(newButton[0], newButton[1], scaleNoteNumber, True)
 			self._pressed_notes.append(midiNote)
 		if self.debugging:
-			print "Button", buttonNumber, "pressed with MIDI note number", midiNote, "and velocity", velocity
+			print ("Button", buttonNumber, "pressed with MIDI note number", midiNote, "and velocity", velocity)
 			pass
 		# print "Pressed Notes", _pressed_notes
 		return
 
-	# Todo, we should actually 
+	# Todo, we should actually
 	def _all_buttons_released(self):
 		for midiNote in self._pressed_notes:
 			self.note_callback('note_off', midiNote, 0)
@@ -448,10 +448,11 @@ class GridInstrument:
 
 	def _grid_musical_mode_button_pressed(self, x, y):
 		index = (x - 1) + ((4 - y) * 8)
-		self._grid_musical_mode = self.MUSICAL_MODES.keys()[index]
-		if self.debugging:
-			print "Musical mode is", self._grid_musical_mode
-			pass
+		modes = list(self.MUSICAL_MODES.keys())
+		if index < len(modes):
+			self._grid_musical_mode = modes[index]
+			if self.debugging:
+				print("Musical mode is", self._grid_musical_mode)
 
 		self._all_buttons_released()
 		self._color_buttons()

@@ -28,11 +28,13 @@ Before you try to do anything, make sure you have **Python 2** and **pip** insta
 Download the source code from github and install prerequisites:
 
     git clone https://github.com/dhilowitz/GridInstrument
-    cd GridInstrument; pip install launchpad_rtmidi_py
+    cd GridInstrument
+    pip install .
 
-Run the app:
+Run the examples:
 
-    python play.py
+    cd examples
+    ./midi_output.py
 
 If all goes well, you should see your grid light up. Next, go into another piece of software that can receive MIDI signals (sforzando is a good, free choice), and you should see a new MIDI device called "Grid Instrument (Virtual Port)"
 

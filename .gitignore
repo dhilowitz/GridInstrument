@@ -1,14 +1,1 @@
-*
-
-!.gitignore
-!/images
-!/images/*
-!/examples
-!/examples/*
-!/grid_instrument
-!/grid_instrument/*
-!play.py
-!README.md
-!MANIFEST.in
-!LICENSE.txt
-!setup.py
+__pycache__
